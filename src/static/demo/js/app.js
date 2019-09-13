@@ -31,6 +31,7 @@ new Vue({
             let self = this;
             axios.get(url)
                 .then(function (response) {
+                    console.log(response);
                     self.meta1 = response['data'][self.case_one_model]['meta'];
                     self.documents = [];
                     response['data'][self.case_one_model]['docs'].forEach(function (d) {
