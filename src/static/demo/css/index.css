@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 5px;
+}
+
+#container {
+    width: 90%
+}
+
+#case1 {
+    float: left;
+    width: 48%
+}
+
+#case2 {
+    float: right;
+    width: 48%
+}
+
+.line-one {
+    display: inline-block;
+}
+.line-two {
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+}
+
+h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+li p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+li {
+    font-size: 12px;
+    padding: 5px;
+    height: 180px;
+    overflow: auto;
+}
+
+li:hover {
+    background: #eee;
+    cursor: pointer;
+}

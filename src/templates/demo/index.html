@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search DEMO</title>
+    <link rel="stylesheet" href="/static/demo/css/index.css">
+</head>
+
+<body>
+<div id="app">
+    <!-- Input Area -->
+    <div>
+        <form style="margin-bottom: 10px" @submit.prevent="pressSearchBtn" method="get">
+            <input v-model="query" type="text" style="width: 150px; height: 20px">
+            <input type="submit" value="검색">
+            <br>
+            <input v-model="start" type="integer">
+            <input v-model="number" type="integer">
+            <br>
+            <select v-model="case_one_model">
+                <option value="standard">standard</option>
+                <option value="nori-dict">nori-dict</option>
+                <option value="expansion-indices">expansion-indices</option>
+                <option value="ranking">ranking</option>
+            </select>
+            <select v-model="case_two_model">
+                <option value="standard">standard</option>
+                <option value="nori-dict">nori-dict</option>
+                <option value="expansion-indices">expansion-indices</option>
+                <option value="ranking">ranking</option>
+            </select>
+        </form>
+    </div>
+    <!-- Input Area -->
+
+    <!-- Output Area -->
+    <div id="container">
+        <!-- Document Area-->
+        <div id="case1">
+            <div>
+                총 문서: ${meta1.total}
+                <br>
+                새로운 문서: ${meta1.only}
+            </div>
+            <ul>
+                <li v-for="(doc, index) in documents">
+                    <div class="line-one">
+                        (${index + 1})
+                        <img v-bind:src="doc.img_url" width="120" height="120" alt="">
+
+                        <a v-if="doc.only" v-bind:href="doc.url" v-html="doc.title" target="_blank"
+                           style="color:red"></a>
+                        <a v-else="doc.only" v-bind:href="doc.url" v-html="doc.title" target="_blank"></a>
+
+                        <br>
+                        유튜브 아이디: ${doc.video_id}
+                        <br>
+                        조회수: ${doc.view_cnt}
+                        <br>
+                        유튜브 점수: ${doc.rating}
+                        <br>
+                        적합성: ${doc.score}
+                        <br>
+                        quality: ${doc.caption_quality}
+                    </div>
+                    <div class="line-owo">
+                        제목: ${doc.title_indices}
+                        <br>
+                        설명: ${doc.desc_indices}
+                    </div>
+                </li>
+            </ul>
+            <!-- Document Area-->
+        </div>
+        <div id="case2">
+            <div>
+                총 문서: ${meta2.total}
+                <br>
+                새로운 문서: ${meta2.only}
+            </div>
+            <ul>
+                <li v-for="(doc, index) in documents2">
+                    <div class="line-one">
+                        (${index + 1})
+                        <img v-bind:src="doc.img_url" width="120" height="120" alt="">
+
+                        <a v-if="doc.only" v-bind:href="doc.url" v-html="doc.title" target="_blank"
+                           style="color:red"></a>
+                        <a v-else="doc.only" v-bind:href="doc.url" v-html="doc.title" target="_blank"></a>
+
+                        <br>
+                        유튜브 아이디: ${doc.video_id}
+                        <br>
+                        조회수: ${doc.view_cnt}
+                        <br>
+                        유튜브 점수: ${doc.rating}
+                        <br>
+                        적합성: ${doc.score}
+                        <br>
+                        quality: ${doc.caption_quality}
+                    </div>
+                    <div class="line-owo">
+                        제목: ${doc.title_indices}
+                        <br>
+                        설명: ${doc.desc_indices}
+                    </div>
+                </li>
+            </ul>
+            <!-- Document Area-->
+        </div>
+    </div>
+    <!-- Output Area -->
+
+</div>
+<script src="/static/demo/js/vue.min.js"></script>
+<script src="/static/demo/js/axios.min.js"></script>
+<script src="/static/demo/js/app.js"></script>
+</body>
+</html>
