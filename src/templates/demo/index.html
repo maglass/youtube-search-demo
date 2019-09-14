@@ -21,12 +21,14 @@
             <br>
             <select v-model="case_one_model">
                 <option value="standard">standard</option>
+                <option value="nori">nori</option>
                 <option value="nori-dict">nori-dict</option>
                 <option value="expansion-indices">expansion-indices</option>
                 <option value="ranking">ranking</option>
             </select>
             <select v-model="case_two_model">
                 <option value="standard">standard</option>
+                <option value="nori">nori</option>
                 <option value="nori-dict">nori-dict</option>
                 <option value="expansion-indices">expansion-indices</option>
                 <option value="ranking">ranking</option>
@@ -64,6 +66,8 @@
                         적합성: ${doc.score}
                         <br>
                         quality: ${doc.caption_quality}
+                        <br>
+                        img quality: ${doc.image_quality}
                     </div>
                     <div class="line-owo">
                         제목: ${doc.title_indices}
@@ -100,6 +104,8 @@
                         적합성: ${doc.score}
                         <br>
                         quality: ${doc.caption_quality}
+                        <br>
+                        img quality: ${doc.image_quality}
                     </div>
                     <div class="line-owo">
                         제목: ${doc.title_indices}

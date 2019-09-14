@@ -24,9 +24,11 @@ div {
 .line-one {
     display: inline-block;
 }
+
 .line-two {
     display: inline-block;
 }
+
 ul {
     list-style-type: none;
 }

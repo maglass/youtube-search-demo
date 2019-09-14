@@ -129,7 +129,7 @@ def _get_search_url(index_name):
 
 
 def _get_params(version, query, start, number):
-    if version in ['standard', 'nori-dict']:
+    if version in ['standard', 'nori-dict', 'nori']:
         return {
             "query": {
                 'match': {
@@ -194,6 +194,14 @@ def _get_params(version, query, start, number):
                                 }
                             },
                             "weight": 0.2
+                        },
+                        {
+                            "script_score": {
+                                "script": {
+                                    "source": "doc['image_quality'].value"
+                                }
+                            },
+                            "weight": 0.1
                         }
                     ]
                 }
